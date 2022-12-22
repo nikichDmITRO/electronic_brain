@@ -1,24 +1,19 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
-
+import React from "react";
+import Todo from "./components/todo/Todo";
+import s from "./app.module.css";
+import Navbar from "./components/navbar/Navbar";
+import Start from "./components/start/Start";
+import { Routes, Route } from "react-router-dom";
+import User from "./components/user/User";
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className={s.main}>
+     <Navbar/>
+      <Routes>
+      <Route path="/" element={<Start />} />
+        <Route path="todo" element={<Todo />} />
+        <Route path="user" element={<User />} />
+      </Routes>
     </div>
   );
 }
